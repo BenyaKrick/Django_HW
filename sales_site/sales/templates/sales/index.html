@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<h1>{{ title }}</h1>
+<hr>
+
+{% for item in adv %}
+    <div>
+        <p>{{ item.title }}</p>
+        <p>{{ item.content }}</p>
+        <p>{{ item.photo }}</p>
+        <p>{{ item.name_person }}</p>
+        <p>{{ item.contacts }}</p>
+        <p>{{ item.price }}</p>
+        <p>{{ item.created_at|date:"d-m-Y H:i" }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+</body>
+</html>
