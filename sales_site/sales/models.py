@@ -15,13 +15,13 @@ class Category(models.Model):
 
 class Sales(models.Model):
     title = models.CharField(max_length=55, verbose_name="Заголовок объявления")
-    content = models.TextField(verbose_name="Текст объявления")
+    content = models.TextField(verbose_name="Текст объявления", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name="Фотографии", blank=True)
     name_person = models.CharField(max_length=15)
     contacts = models.CharField(max_length=30, verbose_name="Контактные данные")
-    price = models.IntegerField(verbose_name="Цена")
+    price = models.IntegerField(verbose_name="Цена", null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
@@ -44,3 +44,14 @@ class Sales(models.Model):
             )
         if errors:
             raise ValidationError(errors)
+
+    def save(
+            self, force_insert=False, force_update=False,
+            using=None, update_fields=None
+    ):
+        self.clean()
+        super().save(force_insert, force_update, using, update_fields)
+
+
+class Spare(models.Model):
+    name = models.CharField(max_length=30)
