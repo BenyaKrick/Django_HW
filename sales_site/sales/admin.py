@@ -7,6 +7,7 @@ class SalesAdmin(admin.ModelAdmin):
     list_display_links = ('created_at', 'price')
     search_fields = ('title', 'adress')
     list_editable = ('is_published',)
+    list_filter = ('created_at', 'category')
 
 
 class CategoryAdmin(admin.ModelAdmin):
