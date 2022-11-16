@@ -14,6 +14,10 @@ class Category(models.Model):
 
 
 class Sales(models.Model):
+    category = models.ForeignKey(
+        Category, on_delete=models.PROTECT, blank=True, null=True,
+        related_name='ads'
+    )
     title = models.CharField(max_length=55, verbose_name="Заголовок объявления")
     content = models.TextField(verbose_name="Текст объявления", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
@@ -22,7 +26,7 @@ class Sales(models.Model):
     name_person = models.CharField(max_length=15)
     contacts = models.CharField(max_length=30, verbose_name="Контактные данные")
     price = models.IntegerField(verbose_name="Цена", null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
+
 
     def __str__(self):
         return self.title
