@@ -47,6 +47,10 @@ class Sales(models.Model):
             errors['content'] = ValidationError(
                 'Укажите описание'
             )
+        if not self.adress:
+            errors['adress'] = ValidationError(
+                'Укажите адрес'
+            )
         if self.price and self.price < 0:
             errors['price'] = ValidationError(
                 'Укажите неотрицательное значение цены'
