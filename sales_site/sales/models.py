@@ -4,13 +4,14 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=80, db_index=True, verbose_name="Категория")
+    title = models.CharField(max_length=80, db_index=True, verbose_name="Тип аренды")
 
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = 'Тип аренды'
+        verbose_name_plural = 'Тип аренды'
         ordering = ['title']
 
 

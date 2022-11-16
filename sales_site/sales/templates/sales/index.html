@@ -20,6 +20,10 @@
         <p>{{ item.created_at|date:"d-m-Y H:i" }}</p>
     </div>
     <hr>
+{% if p.photo %}
+<p><img class="img-article-left thumb" src="{{p.photo.url}}"></p>
+{% endif %}
+
 {% endfor %}
 
 </body>
