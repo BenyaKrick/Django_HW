@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -23,13 +24,15 @@ class Sales(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата изменения")
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name="Фотографии", blank=True)
-    name_person = models.CharField(max_length=15)
+    name_person = models.CharField(max_length=15, verbose_name="ФИО")
     contacts = models.CharField(max_length=30, verbose_name="Контактные данные")
     price = models.IntegerField(verbose_name="Цена", null=True, blank=True)
 
-
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'post_id': self.pk})
 
     class Meta:
         verbose_name = 'Объявление'
