@@ -4,16 +4,17 @@ from .models import *
 
 class SalesAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'created_at', 'price', 'adress', 'photo', 'name_person', 'contacts', 'is_published')
-    list_display_links = ('created_at', 'price')
+    list_display_links = ('title', 'price')
     search_fields = ('title', 'adress')
     list_editable = ('is_published',)
     list_filter = ('created_at', 'category')
+    sortable_by = ('price',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_display_links = ('id', 'title')
-    search_fields = ('title',)
+    search_fields = ('title', 'content')
 
 
 admin.site.register(Sales, SalesAdmin)
