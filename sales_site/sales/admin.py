@@ -3,7 +3,8 @@ from .models import *
 
 
 class SalesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'created_at', 'price', 'adress', 'photo', 'name_person', 'contacts', 'is_published')
+    list_display = ('id', 'title', 'created_at', 'content', 'price', 'adress', 'photo', 'name_person', 'contacts',
+                    'is_published')
     list_display_links = ('title', 'price')
     search_fields = ('title', 'adress')
     list_editable = ('is_published',)
