@@ -18,7 +18,7 @@ class Category(models.Model):
 class Sales(models.Model):
     category = models.ForeignKey(
         'Category', on_delete=models.PROTECT, blank=True, null=True, related_name='ads',
-        verbose_name="Рубрика", verbose_name_plural='Рубрики'
+        verbose_name="Рубрика",
     )
     title = models.CharField(max_length=55, verbose_name="Заголовок объявления")
     content = models.TextField(verbose_name="Текст объявления", null=True, blank=True)
