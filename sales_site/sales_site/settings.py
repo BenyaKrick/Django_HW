@@ -11,8 +11,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR, 'tamplates')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pb#)x%62@jgya#cu%4tqrz$@k7v&4r7g73uz%t#w$$eq1%m*fb'
-
+SECRET_KEY = ''
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -119,3 +118,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+try:
+     from local_settings import *
+except ImportError:
+    pass
