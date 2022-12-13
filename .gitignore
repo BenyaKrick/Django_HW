@@ -129,3 +129,4 @@ GitHub.sublime-settings
 
 /sales_site/db.sqlite3
 .idea
+local_settings.py
