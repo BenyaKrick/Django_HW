@@ -28,7 +28,7 @@ class Sales(models.Model):
     adress = models.TextField(verbose_name="Адрес", null=True, blank=True)
     name_person = models.CharField(max_length=25, verbose_name="ФИО")
     contacts = models.CharField(max_length=30, verbose_name="Контактные данные")
-    price = models.BooleanField(verbose_name="Цена", null=True, blank=True)
+    price = models.FloatField(verbose_name="Цена", null=True, blank=True)
     is_published = models.BooleanField(default=True)
 
     def __str__(self):
